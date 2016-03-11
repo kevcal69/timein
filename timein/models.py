@@ -18,6 +18,13 @@ class TimeRecord(models.Model):
     created  = models.DateTimeField(editable=False)
     modified = models.DateTimeField()
 
+    @property
+    def get_time(self):
+        if modified:
+            return modified
+        else:
+            return created
+
     def save(self, *args, **kwargs):
         today = datetime.datetime.today()
 
